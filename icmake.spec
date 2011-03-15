@@ -1,7 +1,7 @@
 Summary:        A hybrid between a 'make' utility and a 'shell script' language
 Name:		icmake
-Version:	7.12.5
-Release:	%mkrel 2
+Version:	7.15.00
+Release:	%mkrel 1
 License:	GPLv3
 Group:		Development/Other
 URL:		http://icmake.sourceforge.net/
