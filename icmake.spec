@@ -1,11 +1,11 @@
 Summary:        A hybrid between a 'make' utility and a 'shell script' language
 Name:		icmake
-Version:	7.15.00
+Version:	7.16.00
 Release:	%mkrel 1
 License:	GPLv3
 Group:		Development/Other
 URL:		http://icmake.sourceforge.net/
-Source:		http://downloads.sourceforge.net/project/%{name}/%{name}/%{version}/%{name}_%{version}.orig.tar.gz
+Source0:	http://downloads.sourceforge.net/project/%{name}/%{name}/%{version}/%{name}_%{version}.orig.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
@@ -36,6 +36,7 @@ done
 popd
 
 %build
+%setup_compile_flags
 ./icm_bootstrap /
 
 %install
