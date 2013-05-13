@@ -7,7 +7,7 @@ Version:	7.16.00
 Release:	1
 License:	GPLv3
 Group:		Development/Other
-URL:		http://icmake.sourceforge.net/
+Url:		http://icmake.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/project/%{name}/%{name}/%{version}/%{name}_%{version}.orig.tar.gz
 
 %description
@@ -61,26 +61,4 @@ popd
 
 %files doc
 %{_docdir}/%{name}-doc
-
-
-%changelog
-* Mon Dec 19 2011 Dmitry Mikhirev <dmikhirev@mandriva.org> 7.16.00-1
-+ Revision: 743738
-- update to 7.16.00
-
-* Wed Mar 16 2011 Stéphane Téletchéa <steletch@mandriva.org> 7.15.00-1
-+ Revision: 645237
-- update to new version 7.15.00
-
-* Sun Dec 05 2010 Oden Eriksson <oeriksson@mandriva.com> 7.12.5-2mdv2011.0
-+ Revision: 611171
-- rebuild
-
-* Sat Dec 26 2009 Jérôme Brenier <incubusss@mandriva.org> 7.12.5-1mdv2010.1
-+ Revision: 482330
-- new version 7.12.5
-
-* Sat Nov 21 2009 Jérôme Brenier <incubusss@mandriva.org> 7.12.3-1mdv2010.1
-+ Revision: 467773
-- import icmake
 
