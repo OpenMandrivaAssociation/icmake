@@ -3,7 +3,7 @@
 
 Summary:        A hybrid between a 'make' utility and a 'shell script' language
 Name:		icmake
-Version:	7.16.00
+Version:	7.21.00
 Release:	1
 License:	GPLv3
 Group:		Development/Other
