@@ -1,14 +1,14 @@
-%define _enable_debug_packages	%{nil}
-%define debug_package		%{nil}
+%define _enable_debug_packages %{nil}
+%define debug_package %{nil}
 
-Summary:        A hybrid between a 'make' utility and a 'shell script' language
+Summary:	A hybrid between a 'make' utility and a 'shell script' language
 Name:		icmake
-Version:	7.21.00
-Release:	9
+Version:	9.02.08
+Release:	1
 License:	GPLv3
 Group:		Development/Other
-Url:		http://icmake.sourceforge.net/
-Source0:	http://downloads.sourceforge.net/project/%{name}/%{name}/%{version}/%{name}_%{version}.orig.tar.gz
+Url:		https://fbb-git.github.io/icmake/
+Source0:	http://downloads.sourceforge.net/project/%{name}/%{name}/%{version}/%{name}-%{version}.tar.bz2
 
 %description
 Icmake is a hybrid between a 'make' utility and a 'shell script' language. 
@@ -26,29 +26,35 @@ This package contains the documentation for icmake.
 %setup -q
 
 # set the correct LIBDIR path
-sed -i -e "s:usr/lib:usr/%{_lib}:g" INSTALL.im
+sed -i -e "s:usr/lib:usr/%{_lib}:g" %{name}/INSTALL.im
 
 # fix executable perms in examples
-pushd examples
-for i in am backup bup defines ds ftpxfer idir \
-	initialization keep killprog nesteddirectives r tolower
+cd %{name}/examples
+for i in am bup defines ds ftpxfer idir \
+    initialization keep killprog nesteddirectives r tolower
 do
-	chmod -x $i
+    chmod -x $i
 done
-popd
+cd -
 
 %build
 %setup_compile_flags
+export CFLAGS="%{optflags}"
+cd %{name}
+./icm_prepare /
 ./icm_bootstrap /
+cd -
 
 %install
-./icm_install strip progs %{buildroot}
+cd %{name}
+./icm_install progs %{buildroot}
 ./icm_install scripts %{buildroot}
 ./icm_install skel %{buildroot}
 ./icm_install man %{buildroot}
 ./icm_install doc %{buildroot}
 ./icm_install docdoc %{buildroot}
 ./icm_install etc %{buildroot}
+cd -
 
 %files
 %{_bindir}/ic*
