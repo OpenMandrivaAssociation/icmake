@@ -1,10 +1,7 @@
-%define _enable_debug_packages %{nil}
-%define debug_package %{nil}
-
 Summary:	A hybrid between a 'make' utility and a 'shell script' language
 Name:		icmake
 Version:	9.02.08
-Release:	3
+Release:	4
 License:	GPLv3
 Group:		Development/Other
 Url:		https://fbb-git.github.io/icmake/
@@ -23,7 +20,7 @@ Summary:	Documentation for icmake
 This package contains the documentation for icmake.
 
 %prep
-%setup -q
+%autosetup -p1
 
 # set the correct LIBDIR path
 sed -i -e "s:usr/lib:usr/%{_lib}:g" %{name}/INSTALL.im
@@ -38,7 +35,7 @@ done
 cd -
 
 %build
-%setup_compile_flags
+%set_build_flags
 export CFLAGS="%{optflags}"
 cd %{name}
 ./icm_prepare /
@@ -67,4 +64,3 @@ cd -
 
 %files doc
 %{_docdir}/%{name}-doc
-
